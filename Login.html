@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+         *{
+            padding: 0px;
+            margin:0px;
+        }
+        #for{
+            width: 25%;
+            height: 300px;
+            display: block;
+            padding:20px 20px 20px 20px;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+            margin-bottom: 20px;
+            margin: auto;
+            margin-top: 50px;
+        }
+        #email{
+            height: 30px;
+            width: 100%;
+            margin-bottom: 20px;
+            text-align: center;
+            
+            
+        }
+       
+        #password{
+            height: 30px;
+            width: 100%;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        h1{
+            width: 50%;
+            margin: auto;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        #login{
+            display: block;
+            align-items: center;
+            justify-content: center;
+            height: 30px;
+            width: 20%;
+            margin-bottom: 20px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="for">
+        <h1>Login</h1>
+        <form id="form">
+            <input id="email" type="text"  placeholder="Enter Your Email ">
+            <input id="password" type="password" placeholder="Enter your password">
+            <input id="login" type="submit" value="Login">
+        </form>
+    </div>
+   
+</body>
+</html>
+<script>
+    document.querySelector("form").addEventListener("submit",Loginfun);
+    var signupArr=JSON.parse(localStorage.getItem("signup"));
+    console.log(signupArr)
+   // var loginArr=[];
+    function Loginfun(){
+        event.preventDefault();
+        var loginObj={
+            personEmail:form.email.value,
+            personPassword:form.password.value
+        }
+       // loginArr.push(loginObj)
+        if(signupArr===null)
+        {
+            alert("Create The Account")
+        }
+        else if(signupArr.personEmail==loginObj.personEmail && 
+                signupArr.personPassword==loginObj.personPassword)
+        {
+            alert("Successfully Login")
+            localStorage.setItem("login",JSON.stringify(loginObj))
+            window.location.href="Navbar.html"
+        }
+        else
+        {
+            alert("Enter Correct Credentials")
+        }
+        console.log(loginObj)
+    }
+</script>
